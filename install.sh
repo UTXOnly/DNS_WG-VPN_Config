@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "Do you want to install Datadog agent?"
+bash dd_install.sh
+wait
+
 git clone https://github.com/UTXOnly/sudo_user_create.git
 cd sudo_user_create
 sudo bash init.sh
