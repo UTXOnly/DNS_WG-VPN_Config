@@ -1,10 +1,15 @@
 #!/bin/bash
 BGreen='\u001b[32;1m'
 NC='\033[0m'
-echo "Do you want to install Datadog agent?"
-bash ./datadog/dd_install.sh
-wait
-echo -e "${BGreen}Datadog agent installed successfully, moving on...${NC}"
+echo -e "${BGreen}Do you want to install Datadog agent?\n(y|n)${NC}"
+read DD_ANSWER
+if [[ "$DD_ANSWER" == "y" || "$DD_ANSWER" == "yes" ]]; then
+    bash ./datadog/dd_install.sh
+    wait
+    echo -e "${BGreen}Datadog agent installed successfully, moving on...${NC}"
+else
+    echo -e "${BGreen}Skipping Datadog agent install"
+
 git clone https://github.com/UTXOnly/sudo_user_create.git
 cd sudo_user_create
 sudo bash init.sh
