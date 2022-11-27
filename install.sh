@@ -11,13 +11,12 @@ sudo bash init.sh
 
 sudo apt-get update -y && sudo apt-get upgrade -y
 public_ip_address="$(curl -Ls ifconfig.me)"
-echo -e "${BGreen}\nYour public
-ip is: ${public_ip_address}${NC}"
+echo -e "${BGreen}\nYour public ip is: ${public_ip_address}${NC}"
 sudo apt install ufw -y
 sudo allow 22/tcp
 sudo allow from $public_ip_address to any port 53 proto udp
 sudo ufw enable
-echo -e "${BGreen}\nFirewall active, installing pihole"
+echo -e "${BGreen}\nUFW Firewall active, installing pihole"
 #unattended-upgrades.service 
 curl -sSL https://install.pi-hole.net | bash
 
