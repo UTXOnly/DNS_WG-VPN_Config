@@ -11,9 +11,9 @@ else
     echo -e "${BGreen}Skipping Datadog agent install"
 fi
 
-git clone https://github.com/UTXOnly/sudo_user_create.git
-cd sudo_user_create
-sudo bash init.sh
+#git clone https://github.com/UTXOnly/sudo_user_create.git
+#cd sudo_user_create
+#sudo bash init.sh
 
 sudo apt-get update -y && sudo apt-get upgrade -y
 public_ip_address="$(curl -Ls ifconfig.me)"
@@ -34,6 +34,7 @@ if [[ $WG_answer == "y" || $WG_answer == "yes" ]]; then
     git clone https://github.com/UTXOnly/WireGuard-Install-Config.git
     cd WireGuard-Install-Config
     #bash install_config.sh
+    #su $UID
     bash client-side-install2.sh
 else
     echo -e "${BGreen}Skipping Wireguard VPN server install${NC}"
