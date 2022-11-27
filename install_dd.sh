@@ -7,4 +7,4 @@ DD_API_KEY=${API_KEY} DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amaz
 
 sudo cp ./datadog.yaml /etc/datadog-agent/
 echo $DD_API_KEY | sudo tee -a /etc/datadog-agent/datadog.yaml
-
+sudo service datadog-agent restart
