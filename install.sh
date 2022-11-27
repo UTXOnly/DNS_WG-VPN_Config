@@ -2,7 +2,7 @@
 BGreen='\u001b[32;1m'
 NC='\033[0m'
 echo "Do you want to install Datadog agent?"
-bash dd_install.sh
+bash ./datadog/dd_install.sh
 wait
 echo -e "${BGreen}Datadog agent installed successfully, moving on...${NC}"
 git clone https://github.com/UTXOnly/sudo_user_create.git
