@@ -28,7 +28,7 @@ curl -sSL https://install.pi-hole.net | bash
 
 echo -e "${BGreen}\nDo you want to install a Wireguard VPN server on this host? (y|n)\n${NC}"
 read WG_answer
-if [[ $WG_answer == "y" || $WG_answer =="yes" ]]; then
+if [[ $WG_answer == "y" || $WG_answer == "yes" ]]; then
     cd ~/
     git clone https://github.com/UTXOnly/WireGuard-Install-Config.git
     cd WireGuard-Install-Config
