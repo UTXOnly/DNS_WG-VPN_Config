@@ -33,7 +33,8 @@ if [[ $WG_answer == "y" || $WG_answer == "yes" ]]; then
     cd ~/
     git clone https://github.com/UTXOnly/WireGuard-Install-Config.git
     cd WireGuard-Install-Config
-    bash install_config.sh
+    #bash install_config.sh
+    bash client-side-install2.sh
 else
     echo -e "${BGreen}Skipping Wireguard VPN server install${NC}"
 fi 
