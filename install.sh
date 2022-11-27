@@ -16,7 +16,7 @@ sudo apt install ufw -y
 sudo ufw allow 22/tcp
 sudo ufw allow from $public_ip_address to any port 53 proto udp
 sudo ufw enable
-echo -e "${BGreen}\nUFW Firewall active, installing pihole"
+echo -e "${BGreen}\nUFW Firewall active, installing pihole${NC}"
 #unattended-upgrades.service 
 curl -sSL https://install.pi-hole.net | bash
 
