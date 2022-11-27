@@ -21,6 +21,7 @@ echo -e "${BGreen}\nYour public ip is: ${public_ip_address}"
 sudo apt install ufw -y
 sudo ufw allow 22/tcp
 sudo ufw allow from $public_ip_address to any port 53 proto udp
+sudo ufw allow from $public_ip_address to any port 80
 sudo ufw enable
 echo -e "\nUFW Firewall active, installing pihole${NC}"
 #unattended-upgrades.service 
