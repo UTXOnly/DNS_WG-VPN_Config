@@ -20,7 +20,7 @@ echo -e "${BGreen}\nUFW Firewall active, installing pihole"
 #unattended-upgrades.service 
 curl -sSL https://install.pi-hole.net | bash
 
-echo -e "${BGreen}\nDo you want to install a Wireguard VPN server on this host? (y|n)\n"
+echo -e "${BGreen}\nDo you want to install a Wireguard VPN server on this host? (y|n)\n${NC}"
 read WG_answer
 if [ $WG_answer == "y" ]; then
     cd ~/
@@ -28,5 +28,5 @@ if [ $WG_answer == "y" ]; then
     cd WireGuard-Install-Config
     bash install_config.sh
 else
-    echo -e "Skipping Wireguard VPN server install${NC}"
+    echo -e "${BGreen}Skipping Wireguard VPN server install${NC}"
 fi 
