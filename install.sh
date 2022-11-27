@@ -9,6 +9,7 @@ if [[ "$DD_ANSWER" == "y" || "$DD_ANSWER" == "yes" ]]; then
     echo -e "${BGreen}Datadog agent installed successfully, moving on...${NC}"
 else
     echo -e "${BGreen}Skipping Datadog agent install"
+fi
 
 git clone https://github.com/UTXOnly/sudo_user_create.git
 cd sudo_user_create
