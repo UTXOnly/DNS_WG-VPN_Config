@@ -8,14 +8,9 @@ read -p "Please enter your DD_API_KEY and press ENTER: " -s API_KEY
 echo -e "${NC}"
 DD_API_KEY="$API_KEY" DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
 wait
-sudo tee >/etc/datadog-agent/datadog.yaml << EOF
-logs_enabled: true
-process_config:
-  process_collection:
-    enabled: true 
-EOF
 
-#CONFIGS=$(cat ./datadog/dd_configs)
+
+CONFIGS=$(< ./datadog/dd_configs)
 echo $CONFIGS | sudo tee -a /etc/datadog-agent/datadog.yaml 
 
 #echo -e "\napi_key: ${API_KEY}" | sudo tee -a /etc/datadog-agent/datadog.yaml
