@@ -7,7 +7,7 @@ read -p "Please enter your DD_API_KEY and press ENTER: " -s API_KEY
 #read API_KEY
 echo -e "${NC}"
 DD_API_KEY="$API_KEY" DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
-
+wait
 CONFIGS=$(< dd_configs.yaml)
 
 
