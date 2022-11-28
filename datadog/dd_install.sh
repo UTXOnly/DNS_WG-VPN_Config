@@ -12,7 +12,7 @@ CONFIGS=$(< dd_configs.yaml)
 
 
 #echo -e "\napi_key: ${API_KEY}" | sudo tee -a /etc/datadog-agent/datadog.yaml
-echo "api_key:$API_KEY" | sudo tee -a /etc/datadog-agent/datadog.yaml
+echo $CONFIGS | sudo tee -a /etc/datadog-agent/datadog.yaml
 sudo service datadog-agent restart
 sleep 7
 sudo datadog-agent status
