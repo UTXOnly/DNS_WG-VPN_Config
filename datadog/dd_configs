@@ -1,4 +1,4 @@
-logs_enabled: true
-process_config:
-  process_collection:
-    enabled: true
+\nlogs_enabled: true
+\nprocess_config:
+\n  process_collection:
+\n    enabled: true
