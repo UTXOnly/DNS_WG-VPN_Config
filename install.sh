@@ -1,5 +1,6 @@
 #!/bin/bash
 BGreen='\u001b[32;1m'
+BRed='\033[1;31m'
 NC='\033[0m'
 echo -e "${BGreen}Do you want to install Datadog agent?\n(y|n)${NC}"
 read DD_ANSWER
@@ -17,10 +18,11 @@ fi
 
 sudo apt-get update -y && sudo apt-get upgrade -y
 public_ip_address="$(curl -Ls ifconfig.me)"
-echo -e "${BGreen}\nYour public ip is: ${public_ip_address}"
+echo -e "${BGreen}\nYour public ip is: ${BRed}${public_ip_address}${NC}"
 sudo apt install ufw -y
 sudo ufw allow 22/tcp
-sudo ufw allow from $public_ip_address to any port 53 proto udp
+#sudo ufw allow from $public_ip_address to any port 53 proto udp
+sudo ufw allow 53/udp
 sudo ufw allow from $public_ip_address to any port 80
 sudo ufw enable
 echo -e "\nUFW Firewall active, installing pihole${NC}"
