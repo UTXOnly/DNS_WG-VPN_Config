@@ -9,7 +9,7 @@ if [[ "$DD_ANSWER" == "y" || "$DD_ANSWER" == "yes" ]]; then
     wait
     echo -e "${BGreen}Datadog agent installed successfully, moving on...${NC}"
 else
-    echo -e "${BGreen}Skipping Datadog agent install"
+    echo -e "${BGreen}Skipping Datadog agent install${NC}"
 fi
 
 #git clone https://github.com/UTXOnly/sudo_user_create.git
@@ -20,9 +20,17 @@ sudo apt-get update -y && sudo apt-get upgrade -y
 public_ip_address="$(curl -Ls ifconfig.me)"
 echo -e "${BGreen}\nYour public ip is: ${BRed}${public_ip_address}${NC}"
 
-echo -e "\nInstalling pihole${NC}"
-#unattended-upgrades.service 
-curl -sSL https://install.pi-hole.net | bash
+echo -e "${BGreen}Do you want to install Pi-hole?\n(y|n)${NC}"
+read DD_ANSWER_PI
+if [[ "$DD_ANSWER_PI" == "y" || "$DD_ANSWER_PI" == "yes" ]]; then
+    echo -e "\nInstalling pihole${NC}"
+    #unattended-upgrades.service 
+    curl -sSL https://install.pi-hole.net | bash
+    wait
+else
+    echo -e "${BGreen}Skipping Pi-hole install${NC}"
+fi
+
 
 echo -e "${BGreen}\nDo you want to install a Wireguard VPN server on this host? (y|n)\n${NC}"
 read WG_answer
