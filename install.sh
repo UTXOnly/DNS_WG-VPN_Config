@@ -19,13 +19,8 @@ fi
 sudo apt-get update -y && sudo apt-get upgrade -y
 public_ip_address="$(curl -Ls ifconfig.me)"
 echo -e "${BGreen}\nYour public ip is: ${BRed}${public_ip_address}${NC}"
-sudo apt install ufw -y
-sudo ufw allow 22/tcp
-#sudo ufw allow from $public_ip_address to any port 53 proto udp
-sudo ufw allow 53/udp
-sudo ufw allow from $public_ip_address to any port 80
-sudo ufw enable
-echo -e "\nUFW Firewall active, installing pihole${NC}"
+
+echo -e "\nInstalling pihole${NC}"
 #unattended-upgrades.service 
 curl -sSL https://install.pi-hole.net | bash
 
@@ -41,3 +36,10 @@ if [[ $WG_answer == "y" || $WG_answer == "yes" ]]; then
 else
     echo -e "${BGreen}Skipping Wireguard VPN server install${NC}"
 fi 
+
+sudo apt install ufw -y
+sudo ufw allow 22/tcp
+sudo ufw allow from $public_ip_address to any port 53 proto udp
+sudo ufw allow 53/udp
+sudo ufw allow from $public_ip_address to any port 80
+sudo ufw enable
