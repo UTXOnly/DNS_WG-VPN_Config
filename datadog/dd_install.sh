@@ -2,10 +2,10 @@
 
 BGreen='\u001b[32;1m'
 NC='\033[0m'
-#echo -e "${BGreen}"
-#echo -e "${BGreen}Please enter your DD_API_KEY and press ENTER:"
+echo -e "${BGreen}"
+read -p "Please enter your DD_API_KEY and press ENTER:\n" -s DD_API_KEY
 #read API_KEY
-DD_API_KEY=$(< .env)
+echo"${NC}"
 DD_SITE="datadoghq.com" bash -c "$(curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script_agent7.sh)"
 
 sudo cp ./datadog/datadog.yaml /etc/datadog-agent/
