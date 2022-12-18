@@ -12,7 +12,7 @@ wait
 CONFIGS=$(< ./datadog/dd_configs)
 echo "$CONFIGS" | sudo tee -a /etc/datadog-agent/datadog.yaml 
 
-sudo -u dd-agent install -m 0644 /etc/datadog-agent/system-probe.yaml.example /etc/datadog-agent/system-probe.yaml
+sudo -u dd-agent install -m 666 /etc/datadog-agent/system-probe.yaml.example /etc/datadog-agent/system-probe.yaml
 
 tee -a >/etc/datadog-agent/system-probe.yaml <<EOF
 network_config:
