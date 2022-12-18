@@ -14,7 +14,7 @@ echo "$CONFIGS" | sudo tee -a /etc/datadog-agent/datadog.yaml
 
 sudo -u dd-agent install -m 0644 /etc/datadog-agent/system-probe.yaml.example /etc/datadog-agent/system-probe.yaml
 
-sudo tee -a >/etc/datadog-agent/system-probe.yaml <<EOF
+tee -a >/etc/datadog-agent/system-probe.yaml <<EOF
 network_config:
   enabled: true
 EOF
